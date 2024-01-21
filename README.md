@@ -11,11 +11,12 @@ Ready to use Template for npm library package development.
 │
 ├── examples                        # Example project for add deps & running the npm package
 │   ├── src                         # Example source folder
-│   ├── index.ts                    # Entry point for all exports
+│   ├── index.ts                    # Start point for example
 │   └── package.json                # example package.json
 │
 ├── lerna.json                      # lerna workspace setting
 └── package.json                    # root package.json
+
 ```
 ## Getting started
 
