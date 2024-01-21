@@ -1,0 +1,50 @@
+{
+  "name": "@lwd/npm-package-dev",
+  "version": "0.9.1",
+  "private": true,
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "scripts": {
+    "bundle": "npm run bundle:min",
+    "bundle:watch": "ncc watch src/index.ts --target es2020 ",
+    "bundle:min": "ncc build src/index.ts --target es2020 --minify",
+    "watch": "tsbb watch src/*.ts --use-babel",
+    "build": "tsbb build src/*.ts --use-babel"
+  },
+  "files": [
+    "dist",
+    "src",
+    "esm",
+    "cjs"
+  ],
+  "dependencies": {
+    "typescript": "^4.4.2"
+    
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "peerDependencies": {
+    "webpack": ">=5.0.0",
+    "@babel/core": ">=7.0.0-0",
+    "@babel/plugin-syntax-flow": ">=7.0.0",
+    "@babel/plugin-transform-private-property-in-object": ">=7.0.0",
+    "@babel/plugin-transform-react-jsx": ">=7.0.0"
+  },
+  "devDependencies": {
+    "webpack": "^5.0.0",
+    "@babel/core": "^7.0.0-0",
+    "@babel/plugin-syntax-flow": "^7.14.5",
+    "@babel/plugin-transform-private-property-in-object": "^7.23.4",
+    "@babel/plugin-transform-react-jsx": "^7.14.9"
+  }
+}
