@@ -1,0 +1,40 @@
+{
+  "name": "npm-package-dev",
+  "version": "0.6.1",
+  "private": true,
+  "scripts": {
+    "build": "lerna exec --scope @lwd/npm-package-dev --ignore blitz-web-sdk-example -- npm run build",
+    
+    "watch": "npm run-script watch --workspace @lwd/npm-package-dev",
+    "bundle": "npm run-script bundle --workspace @lwd/npm-package-dev",
+    "bundle:min": "npm run-script bundle:min --workspace @lwd/npm-package-dev",
+
+    "example": "npm run-script build --workspace examples",
+    "start": "npm run-script start --workspace examples",
+  
+    "test": "lerna exec \"tsbb test\" --scope  @lwd/npm-package-dev",
+    "coverage": "lerna exec \"tsbb test --coverage --bail\" --scope @lwd/npm-package-dev",
+    "version": "lerna version --exact --force-publish --no-push --no-git-tag-version",
+    
+    "remove": "npm run clean && lerna exec \"rm -rf package-lock.json cjs esm dist lib\" ",
+    "clean": "lerna clean --yes"
+  },
+  "workspaces": [
+    "./examples",
+    "./@lwd/npm-package-dev"
+  ],
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0-0",
+    "@babel/plugin-syntax-flow": "^7.14.5",
+    "@babel/plugin-transform-private-property-in-object": "^7.23.4",
+    "@babel/plugin-transform-react-jsx": "^7.14.9",
+    "@testing-library/dom": "^9.3.4",
+    "cross-env": "^7.0.3",
+    "lerna": "^8.0.2",
+    "tsbb": "^4.2.5",
+    "webpack": "^5.0.0"
+  }
+}
